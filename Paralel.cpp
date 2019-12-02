@@ -3,13 +3,6 @@
 
 Paralel::Paralel(int flag)//Конструктор для инициализации вершин паралелипипедов(Инициализируется константными значениями)
 {
-	array_of_paint_pixel = new bool *[770];
-	for (int i = 0; i < 770; i++)
-	{
-		array_of_paint_pixel[i] = new bool[1370];
-		for (int j = 0; j < 1370; j++)
-			array_of_paint_pixel[i][j] = false;//Изначатьно все не закрашены*/
-	}
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -20,89 +13,90 @@ Paralel::Paralel(int flag)//Конструктор для инициализации вершин паралелипипедов
 	if (flag == 0)
 	{
 		A[0][0] = 100;
-		A[0][1] = 150;
+		A[0][1] = 100;
 		A[0][2] = 10;
 		A[0][3] = 1;
 
-		A[1][0] = 200;
-		A[1][1] = 150;
+		A[1][0] = 300;
+		A[1][1] = 100;
 		A[1][2] = 10;
 		A[1][3] = 1;
 
-		A[2][0] = 200;
-		A[2][1] = 250;
+		A[2][0] = 300;
+		A[2][1] = 200;
 		A[2][2] = 10;
 		A[2][3] = 1;
 
-		A[3][0] = 0 + 100;
-		A[3][1] = 100 + 150;
+		A[3][0] = 100;
+		A[3][1] = 200;
 		A[3][2] = 10;
 		A[3][3] = 1;
 
-		A[4][0] = 0 + 150;
-		A[4][1] = 0 + 200;
-		A[4][2] = 150;
+		A[4][0] = 100;
+		A[4][1] = 100;
+		A[4][2] = 200;
 		A[4][3] = 1;
 
-		A[5][0] = 100 + 150;
-		A[5][1] = 0 + 200;
-		A[5][2] = 150;
+		A[5][0] = 300;
+		A[5][1] = 100;
+		A[5][2] = 200;
 		A[5][3] = 1;
 
-		A[6][0] = 100 + 150;
-		A[6][1] = 100 + 200;
-		A[6][2] = 150;
+		A[6][0] = 300;
+		A[6][1] = 200;
+		A[6][2] = 200;
 		A[6][3] = 1;
 
-		A[7][0] = 0 + 150;
-		A[7][1] = 100 + 200;
-		A[7][2] = 150;
+		A[7][0] = 100;
+		A[7][1] = 200;
+		A[7][2] = 200;
 		A[7][3] = 1;
 	}
 	else
 	{
-		A[0][0] = 0 + 100 + 300;
-		A[0][1] = 0 + 150;
-		A[0][2] = 0;
+		A[0][0] = 100+400;
+		A[0][1] = 100;
+		A[0][2] = 10;
 		A[0][3] = 1;
 
-		A[1][0] = 100 + 100 + 300;
-		A[1][1] = 0 + 150;
-		A[1][2] = 0;
+		A[1][0] = 300+400;
+		A[1][1] = 100;
+		A[1][2] = 10;
 		A[1][3] = 1;
 
-		A[2][0] = 100 + 100 + 300;
-		A[2][1] = 100 + 150;
-		A[2][2] = 0;
+		A[2][0] = 300+400;
+		A[2][1] = 200;
+		A[2][2] = 10;
 		A[2][3] = 1;
 
-		A[3][0] = 0 + 100 + 300;
-		A[3][1] = 100 + 150;
-		A[3][2] = 0;
+		A[3][0] = 100+400;
+		A[3][1] = 200;
+		A[3][2] = 10;
 		A[3][3] = 1;
 
-		A[4][0] = 0 + 150 + 300;
-		A[4][1] = 0 + 200;
-		A[4][2] = 150;
+		A[4][0] = 100+400;
+		A[4][1] = 100;
+		A[4][2] = 100;
 		A[4][3] = 1;
 
-		A[5][0] = 100 + 150 + 300;
-		A[5][1] = 0 + 200;
-		A[5][2] = 150;
+		A[5][0] = 300+400;
+		A[5][1] = 100;
+		A[5][2] = 100;
 		A[5][3] = 1;
 
-		A[6][0] = 100 + 150 + 300;
-		A[6][1] = 100 + 200;
-		A[6][2] = 150;
+		A[6][0] = 300+400;
+		A[6][1] = 200;
+		A[6][2] = 100;
 		A[6][3] = 1;
 
-		A[7][0] = 0 + 150 + 300;
-		A[7][1] = 100 + 200;
-		A[7][2] = 150;
+		A[7][0] = 100+400;
+		A[7][1] = 200;
+		A[7][2] = 100;
 		A[7][3] = 1;
 	}
+
 	float a = 0, b = 0, c = 0;
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		a += A[i][0];
 		b += A[i][1];
@@ -119,17 +113,17 @@ Paralel::Paralel(int flag)//Конструктор для инициализации вершин паралелипипедов
 	//vector of observer in infinity
 	observer[0] = 0 ;//x
 	observer[1] = 0 ;//y
-	observer[2] = 2000  ;//z
-	observer[3] = 0;
+	observer[2] = 2000;//z
+	observer[3] = 1;
 
 	//vector of light in infinity
 	light[0] = 0 ;//x
-	light[1] = 10000;//y
+	light[1] = -100000;//y
 	light[2] = 0;//z
-	light[3] = 0;
+	light[3] = 1 ;
 
 	//set_floor
-	y_floor = 500;
+	y_floor = 600;
 }
 
 Paralel::Paralel(const Paralel & F)
@@ -143,7 +137,7 @@ Paralel & Paralel::operator=(Paralel & f)
 {
 	for (int i = 0; i < 8; i++)
 		for(int j = 0; j < 4; j++)
-		A[i][j] = f.A[i][j];
+			A[i][j] = f.A[i][j];
 
 	return *this;
 }
@@ -155,9 +149,12 @@ Paralel & Paralel::operator*(Cmat & Bb)
 	double tmp[8][4];
 
 	for (int i = 0; i < 8; i++)
-		for (int j = 0; j < 4; j++)
-			tmp[i][j] = (A[i][0] * Bb.B[j][0] + A[i][1] * Bb.B[j][1] + A[i][2] * Bb.B[j][2] + A[i][3] * Bb.B[j][3]);
-		
+	{
+		tmp[i][0] = (A[i][0] * Bb.B[0][0] + A[i][1] * Bb.B[0][1] + A[i][2] * Bb.B[0][2] + A[i][3] * Bb.B[0][3]);
+		tmp[i][1] = (A[i][0] * Bb.B[1][0] + A[i][1] * Bb.B[1][1] + A[i][2] * Bb.B[1][2] + A[i][3] * Bb.B[1][3]);
+		tmp[i][2] = (A[i][0] * Bb.B[2][0] + A[i][1] * Bb.B[2][1] + A[i][2] * Bb.B[2][2] + A[i][3] * Bb.B[2][3]);
+		tmp[i][3] = (A[i][0] * Bb.B[3][0] + A[i][1] * Bb.B[3][1] + A[i][2] * Bb.B[3][2] + A[i][3] * Bb.B[3][3]);
+	}
 	for (int i = 0; i < 8; i++)
 		for (int j = 0; j < 4; j++)
 			A[i][j] = tmp[i][j];
@@ -167,13 +164,10 @@ Paralel & Paralel::operator*(Cmat & Bb)
 
 Paralel::~Paralel()
 {
-	for (int i = 0; i < 770; i++)
-		delete[] array_of_paint_pixel[i];
 
-	delete[] array_of_paint_pixel;
 }
 
-void Paralel::drow_line(float x1, float y1, float x2, float y2, int color_1, int color_2, int color_3)
+/*void Paralel::drow_line(float x1, float y1, float x2, float y2, int color_1, int color_2, int color_3)
 {
 	HWND sHwnd = GetForegroundWindow();
 	HDC hdc = GetDC(sHwnd);
@@ -213,17 +207,95 @@ void Paralel::drow_line(float x1, float y1, float x2, float y2, int color_1, int
 	}
 
 	ReleaseDC(sHwnd, hdc);
+}*/
+
+void Paralel::drow_figure(float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3, int flag)//1 цвет, 0 тень
+{
+	HWND sHwnd = GetForegroundWindow();
+	HDC hdc = GetDC(sHwnd);
+
+	bool **array_of_paint_pixel;//Массив для закрашеных и не закрашеных пикселей
+	array_of_paint_pixel = new bool *[770];
+
+	for (int i = 0; i < 770; i++)
+	{
+		array_of_paint_pixel[i] = new bool[1370];
+		for (int j = 0; j < 1370; j++)
+			array_of_paint_pixel[i][j] = false;//Изначатьно все не закрашены*/
+	}
+
+
+	int color_1, color_2, color_3;
+	if (flag == 0)//ТЕнь
+	{
+		color_1 = color_2 = color_3 = 70;
+	}
+	else
+	{
+		color_1 = 250;
+		color_2 = color_3 = 0;
+	}
+
+
+	int B[5][3] = { {round(x0), round(y0),1} ,{round(x1),round(y1), 1},
+	{round(x2),round(y2), 1} ,{round(x3),round(y3), 1}, {round(x0),round(y0), 1} };
+
+	for (int i = 0; i < 4; i++)
+	{
+		int dx = abs(B[i][0] - B[i + 1][0]);
+		int dy = abs(B[i][1] - B[i + 1][1]);
+		int sx = B[i][0] < B[i + 1][0] ? 1 : -1;
+		int sy = B[i][1] < B[i + 1][1] ? 1 : -1;
+		int err = (dx > dy ? dx : -dy) / 2;
+		double e2 = err;
+
+		while (1)
+		{
+			SetPixel(hdc, B[i][0], B[i][1], RGB(color_1, color_2, color_3));
+
+			array_of_paint_pixel[B[i][1]][B[i][0]] = true;
+
+
+			if (B[i][0] == B[i + 1][0] && B[i][1] == B[i + 1][1]) break;
+			e2 = err;
+			if (e2 > -dx)
+			{
+				err -= dy; B[i][0] += sx;
+			}
+
+			if (e2 < dy)
+			{
+				err += dx; B[i][1] += sy;
+			}
+		}
+	}
+	ReleaseDC(sHwnd, hdc);
+	//Заливка
+	fill(round((x0+x1+x2+x3)/4), round((y0 + y1 + y2 + y3) / 4),  flag, array_of_paint_pixel);
+
+	for (int i = 0; i < 770; i++)
+		delete[] array_of_paint_pixel[i];
+
+	delete[] array_of_paint_pixel;
 }
 
 void Paralel::del_invisible_line()
 {
+	for (int i = 0; i < 6; i++)
+		for (int j = 0; j < 4; j++)
+			Matr_of_flat_equation[j][i] = 0;
+	for (int i = 0; i < 6; i++)
+	{
+		mull_equ_and_light[i] = 0;
+		mull_equ_and_observer[i] = 0;
+	}
 	//получим матрицу уравнений плоскостей граней
-	equation_of_flat(0, 0, 1, 3);// грань из точек 0-1-2-3
-	equation_of_flat(1, 6, 5, 7);// грань из точек 4-5-6-7
-	equation_of_flat(2, 0, 4, 1);// грань из точек 0-1-5-4
-	equation_of_flat(3, 1, 5, 2);// грань из точек 5-1-2-6
-	equation_of_flat(4, 2, 6, 3);// грань из точек 6-2-3-7
-	equation_of_flat(5, 3, 7, 0);// грань из точек 7-3-0-4
+	equation_of_flat(0, 0, 1, 3, 2);// грань из точек 0-1-2-3
+	equation_of_flat(1, 6, 5, 7, 4);// грань из точек 4-5-6-7
+	equation_of_flat(2, 0, 4, 1, 5);// грань из точек 0-1-5-4
+	equation_of_flat(3, 1, 5, 2, 6);// грань из точек 5-1-2-6
+	equation_of_flat(4, 2, 6, 3, 7);// грань из точек 6-2-3-7
+	equation_of_flat(5, 3, 7, 0, 4);// грань из точек 7-3-0-4
 	//Проверка через точку, лежащую в центре параллелепипеда
 	float try_arr[4] = { center[0], center[1], center[2], 1 };
 	float sum = 0;
@@ -232,20 +304,25 @@ void Paralel::del_invisible_line()
 		sum = 0;
 		for (int j = 0; j < 4; j++)
 		{
-			sum += try_arr[j] * Matr_of_flat_equation[j][i];
+			sum += (try_arr[j] * Matr_of_flat_equation[j][i]);
 		}
-		if (sum > 0)// Следует домножить всё уравнение на -1
+		if (sum >= 0)// Следует домножить всё уравнение на -1
 		{
-			for (int j = 0; j <4; j++)
+			for (int j = 0; j < 4; j++)
 			{
 				Matr_of_flat_equation[j][i] *= -1;
 			}
 		}
 	}
-	
-
 	//
-
+	//Центральные точки каждой грани
+	
+	float dot_of_center_of_edge[6][4] = { { (A[0][0] + A[1][0] + A[2][0] + A[3][0])/4, (A[0][1] + A[1][1] + A[2][1] + A[3][1]) / 4 , (A[0][2] + A[1][2] + A[2][2] + A[3][2]) / 4, 1},// грань из точек 0-1-2-3
+	{ (A[4][0] + A[5][0] + A[6][0] + A[7][0]) / 4, (A[4][1] + A[5][1] + A[6][1] + A[7][1]) / 4 , (A[4][2] + A[5][2] + A[6][2] + A[7][2]) / 4, 1},// грань из точек 4-5-6-7
+	{ (A[0][0] + A[1][0] + A[5][0] + A[4][0]) / 4, (A[0][1] + A[1][1] + A[5][1] + A[4][1]) / 4 , (A[0][2] + A[1][2] + A[5][2] + A[4][2]) / 4, 1}, // грань из точек 0 - 1 - 5 - 4
+	{ (A[5][0] + A[1][0] + A[2][0] + A[6][0]) / 4, (A[5][1] + A[1][1] + A[2][1] + A[6][1]) / 4 , (A[5][2] + A[1][2] + A[2][2] + A[6][2]) / 4, 1}, // грань из точек 5-1-2-6
+	{ (A[6][0] + A[2][0] + A[3][0] + A[7][0]) / 4, (A[6][1] + A[2][1] + A[3][1] + A[7][1]) / 4 , (A[6][2] + A[2][2] + A[3][2] + A[7][2]) / 4, 1}, // грань из точек 6-2-3-7
+	{ (A[7][0] + A[3][0] + A[0][0] + A[4][0]) / 4, (A[7][1] + A[3][1] + A[0][1] + A[4][1]) / 4 , (A[7][2] + A[3][2] + A[0][2] + A[4][2]) / 4, 1} };// грань из точек 7-3-0-4
 	
 	for (int i = 0; i < 6; i++)
 	{
@@ -254,44 +331,27 @@ void Paralel::del_invisible_line()
 
 		for (int j = 0; j < 4; j++)
 		{
-			mull_equ_and_observer[i] += Matr_of_flat_equation[j][i] * observer[j];
-			mull_equ_and_light[i] += Matr_of_flat_equation[j][i] * light[j];
+			mull_equ_and_observer[i] += (Matr_of_flat_equation[j][i] * (observer[j] - dot_of_center_of_edge[i][j]));
+			mull_equ_and_light[i] +=(Matr_of_flat_equation[j][i] * (light[j] - dot_of_center_of_edge[i][j]));
 		}
-	}
-
-	
-/*	for (int i = 0; i < 4; i++)
-	{
-		cout << "  " << observer[i] << "   "<< light[i]<<endl;
-	}
-	
-	for (int i = 0; i < 6; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			cout << "  " << Matr_of_flat_equation[j][i] << "   ";
-		}
-		cout << endl;
-	}
-	system("pause");
-	for (int i = 0; i < 6; i++)
-	{
-		cout << i << "  " << mull_equ_and_observer[i] <<"   "<< mull_equ_and_light[i]<<endl;
-	}
-	system("pause");
-	*/
+	}	
 }
 
-void Paralel::equation_of_flat(int num_of_flat, int T1, int T2, int T3)
+void Paralel::equation_of_flat(int num_of_flat, int T1, int T2, int T3, int T4)
 {
-	float x1 = A[T1][0], x2 = A[T2][0], x3 = A[T3][0], y1 = A[T1][1], y2 = A[T2][1], y3 = A[T3][1], z1 = A[T1][2], z2 = A[T2][2], z3 = A[T3][2];
-
-	float v[3] = {x2 - x1, y2 - y1, z2 - z1};
-	float w[3] = {x3 - x1, y3 - y1, z3 - z1};
-	Matr_of_flat_equation[0][num_of_flat] = (v[1] * w[2] - v[2] * w[1]);   //Находим коэфф А
-	Matr_of_flat_equation[1][num_of_flat] = (v[2] * w[0] - v[0] * w[2]);   //Находим коэфф B
-	Matr_of_flat_equation[2][num_of_flat] = (v[0] * w[1] - v[1] * w[0]);   //Находим коэфф C
-	Matr_of_flat_equation[3][num_of_flat] = -x1 * Matr_of_flat_equation[0][num_of_flat] - y1 * Matr_of_flat_equation[1][num_of_flat] - z1 * Matr_of_flat_equation[2][num_of_flat]; //Находим коэфф C
+	float x1 = A[T1][0], x2 = A[T2][0], x3 = A[T3][0], x4 = A[T4][0], y1 = A[T1][1], y2 = A[T2][1], y3 = A[T3][1], y4 = A[T4][1], z1 = A[T1][2], z2 = A[T2][2], z3 = A[T3][2], z4 = A[T4][2];
+	/*
+	A = Vec1.Y·Vec2.Z - Vec2.Y·Vec1.Z;
+	B = Vec1.Z·Vec2.X - Vec2.Z·Vec1.X;
+	C = Vec1.X·Vec2.Y - Vec2.X·Vec1.Y;
+	D = -(A·V1.X + B·V1.Y + C·V1.Z);
+	*/
+	float v1[3] = {x2 - x1, y2 - y1, z2 - z1};//v1
+	float v2[3] = {x3 - x1, y3 - y1, z3 - z1};//v2
+	Matr_of_flat_equation[0][num_of_flat] = (v1[1] * v2[2] - v1[2] * v2[1]);   //Находим коэфф А
+	Matr_of_flat_equation[1][num_of_flat] = (v1[2] * v2[0] - v1[0] * v2[2]);   //Находим коэфф B
+	Matr_of_flat_equation[2][num_of_flat] = (v1[0] * v2[1] - v1[1] * v2[0]);   //Находим коэфф C
+	Matr_of_flat_equation[3][num_of_flat] = -(Matr_of_flat_equation[0][num_of_flat] * ((x1 + x2 + x3 + x4) / 4) + Matr_of_flat_equation[1][num_of_flat] * ((y1 + y2 + y3 + y4) / 4) + Matr_of_flat_equation[2][num_of_flat] * ((z1 + z2 + z3 + z4) / 4)); //Находим коэфф D
 	
 	for (int i = 0; i < 4; i++)
 	{
@@ -299,21 +359,30 @@ void Paralel::equation_of_flat(int num_of_flat, int T1, int T2, int T3)
 	}
 }
 
-void Paralel::drow(int flag)// flag = 1 -рисуем flag = -1 -стираем
+void Paralel::drow()// рисуем  параллелипипед
 {
-	int color1 = 0, color2 = 0, color3 = 0;
-	// грань из точек 0-1-2-3
+	//Установка новых тоек центра
+	float a = 0, b = 0, c = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		a += A[i][0];
+		b += A[i][1];
+		c += A[i][2];
+	}
+	a /= 8;
+	b /= 8;
+	c /= 8;
+
+	center[0] = a;
+	center[1] = b;
+	center[2] = c;
+
+	drow_shadow();//Рисуем тень
 	del_invisible_line();// Вычисление удаляемых и теневых плоскостей
 
-	//Рисование основной фигуры:
-
-	//Цвет  не затенённой грани  - 0   200 0
-	//Цвет не затенённой заливки - 200 200 0
-	//Цвет  затенённой грани -     50  50  50
-	//Цвет затенённой заливки -    128 128 128
-
+	//Рисование основной фигуры
 	//Центральная проекция
-	float L[8][2], zk = observer[2], zm = 500;//Задание данных кординат подобрано вручную zk - расстояние до глаза в пикселях ^_^ zm расстояние от 3-х ерного объекта до монитора
+	float L[8][2], zk = observer[2], zm = 600;//Задание данных кординат подобрано вручную zk - расстояние до глаза в пикселях ^_^ zm расстояние от 3-х ерного объекта до монитора
 
 	for (int i = 0; i < 8; i++)
 	{
@@ -325,300 +394,221 @@ void Paralel::drow(int flag)// flag = 1 -рисуем flag = -1 -стираем
 	// грань из точек 0-1-2-3-0
 	if (mull_equ_and_observer[0] >= 0)
 	{
-		if (flag != -1)
-		{
 			if (mull_equ_and_light[0] >= 0)//Не в тени
 			{
-				color1 = 0;
-				color2 = 200;
-				color3 = 0;
-				flag = 1;
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 1);//0-1-2-3
 			}
-			else
+			else//В тени
 			{
-				color1 = 50;
-				color2 = 50;
-				color3 = 50;
-				flag = 0;
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 0);//0-1-2-3
 			}
-		}
-
-		drow_line(L[0][0], L[0][1], L[1][0], L[1][1], color1, color2, color3);//0 - 1
-		drow_line(L[1][0], L[1][1], L[2][0], L[2][1], color1, color2, color3);//1 - 2
-		drow_line(L[2][0], L[2][1], L[3][0], L[3][1], color1, color2, color3);//2 - 3
-		drow_line(L[3][0], L[3][1], L[0][0], L[0][1], color1, color2, color3);//3 - 0
-
-		fill((L[0][0] + L[1][0] + L[2][0] + L[3][0]) / 4, (L[0][1] + L[1][1] + L[2][1] + L[3][1] / 4), flag);
 	}
 
 	// грань из точек 4-5-6-7
 	if (mull_equ_and_observer[1] >= 0)
 	{
-		if (flag != -1)
-		{
 			if (mull_equ_and_light[1] >= 0)//Не в тени
 			{
-				color1 = 0;
-				color2 = 200;
-				color3 = 0;
-				flag = 1;
+				drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 1);//4-5-6-7
 			}
 			else
 			{
-				color1 = 50;
-				color2 = 50;
-				color3 = 50;
-				flag = 0;
+				drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 0);//4-5-6-7
 			}
-		}
-
-		drow_line(L[4][0], L[4][1], L[5][0], L[5][1], color1, color2, color3);//4 - 5
-		drow_line(L[5][0], L[5][1], L[6][0], L[6][1], color1, color2, color3);//5 - 6
-		drow_line(L[6][0], L[6][1], L[7][0], L[7][1], color1, color2, color3);//6 - 7
-		drow_line(L[7][0], L[7][1], L[4][0], L[4][1], color1, color2, color3);//7 - 4
-		
-		fill((L[4][0] + L[5][0] + L[6][0] + L[7][0]) / 4, (L[4][1] + L[5][1] + L[6][1] + L[7][1] / 4), flag);
 	}
 
 	// грань из точек 0-1-5-4
 	if (mull_equ_and_observer[2] >= 0)
 	{
-		if (flag != -1)
-		{
 			if (mull_equ_and_light[2] >= 0)//Не в тени
 			{
-				color1 = 0;
-				color2 = 200;
-				color3 = 0;
-				flag = 1;
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 1);//0-1-5-4
 			}
 			else
 			{
-				color1 = 50;
-				color2 = 50;
-				color3 = 50;
-				flag = 0;
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 0);//0-1-5-4
 			}
-		}
-
-		drow_line(L[0][0], L[0][1], L[1][0], L[1][1], color1, color2, color3);//0 - 1
-		drow_line(L[1][0], L[1][1], L[5][0], L[5][1], color1, color2, color3);//1 - 5
-		drow_line(L[5][0], L[5][1], L[4][0], L[4][1], color1, color2, color3);//5 - 3
-		drow_line(L[4][0], L[4][1], L[0][0], L[0][1], color1, color2, color3);//4 - 0
-		
-		fill((L[0][0] + L[1][0] + L[5][0] + L[4][0]) / 4, (L[0][1] + L[1][1] + L[5][1] + L[4][1] / 4), flag);
 	}
 
 	// грань из точек 5-1-2-6
 	if (mull_equ_and_observer[3] >= 0)
 	{
-		if (flag != -1)
-		{
 			if (mull_equ_and_light[3] >= 0)//Не в тени
 			{
-				color1 = 0;
-				color2 = 200;
-				color3 = 0;
-				flag = 1;
+				drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 1);
 			}
 			else
 			{
-				color1 = 50;
-				color2 = 50;
-				color3 = 50;
-				flag = 0;
+				drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 0);
 			}
-		}
-
-		drow_line(L[5][0], L[5][1], L[1][0], L[1][1], color1, color2, color3);//5 - 1
-		drow_line(L[1][0], L[1][1], L[2][0], L[2][1], color1, color2, color3);//1 - 2
-		drow_line(L[2][0], L[2][1], L[6][0], L[6][1], color1, color2, color3);//2 - 6
-		drow_line(L[6][0], L[6][1], L[5][0], L[5][1], color1, color2, color3);//6 - 5
-		
-		fill((L[5][0] + L[1][0] + L[2][0] + L[6][0]) / 4, (L[5][1] + L[1][1] + L[2][1] + L[6][1] / 4), flag);
 	}
 
 	// грань из точек 6-2-3-7
 	if (mull_equ_and_observer[4] >= 0)
 	{
-		if (flag != -1)
-		{
 			if (mull_equ_and_light[4] >= 0)//Не в тени
 			{
-				color1 = 0;
-				color2 = 200;
-				color3 = 0;
-				flag = 1;
+				drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 1);
 			}
 			else
 			{
-				color1 = 50;
-				color2 = 50;
-				color3 = 50;
-				flag = 0;
+				drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 0);
 			}
-		}
-
-		drow_line(L[6][0], L[6][1], L[2][0], L[2][1], color1, color2, color3);//6 - 2
-		drow_line(L[2][0], L[2][1], L[3][0], L[3][1], color1, color2, color3);//2 - 3 
-		drow_line(L[3][0], L[3][1], L[7][0], L[7][1], color1, color2, color3);//3 - 7
-		drow_line(L[7][0], L[7][1], L[6][0], L[6][1], color1, color2, color3);//7 - 6
-
-		fill((L[6][0] + L[2][0] + L[3][0] + L[7][0]) / 4, (L[6][1] + L[2][1] + L[3][1] + L[7][1] / 4), flag);
 	}
 
 	// грань из точек 7-3-0-4
 	if (mull_equ_and_observer[5] >= 0)
 	{
-		if (flag != -1)
-		{
 			if (mull_equ_and_light[5] >= 0)//Не в тени
 			{
-				color1 = 0;
-				color2 = 200;
-				color3 = 0;
-				flag = 1;
+				drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 1);
 			}
 			else
 			{
-				color1 = 50;
-				color2 = 50;
-				color3 = 50;
-				flag = 0;
+				drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 0);
 			}
-		}
-
-		drow_line(L[7][0], L[7][1], L[3][0], L[3][1], color1, color2, color3);//7 - 3
-		drow_line(L[3][0], L[3][1], L[0][0], L[0][1], color1, color2, color3);//3 - 0
-		drow_line(L[0][0], L[0][1], L[4][0], L[4][1], color1, color2, color3);//0 - 4
-		drow_line(L[4][0], L[4][1], L[7][0], L[7][1], color1, color2, color3);//4 - 7
-
-		fill((L[7][0] + L[3][0] + L[0][0] + L[4][0]) / 4, (L[7][1] + L[3][1] + L[0][1] + L[4][1] / 4), flag);
 	}
-
-	drow_shadow(flag);//Рисуем тень
 }
 
-void Paralel::fill(int x_pixel, int y_pixel, int flag)// Алгоритм построчного заполнения с затравкой (x_pixel, y_pixel) - ЗАтравочный пиксель
+int Paralel::fill(int x_pixel, int y_pixel, int flag, bool **array_of_paint_pixel)
 {
+
 	stack <int> stack_obg;
 	int color1 = 0, color2 = 0, color3 = 0;
 	int x_left = 0, x_right = 0, x_now, y_now;
-	bool choice_flag = true;
-
-	if (flag == -1)
-		choice_flag = false;
-	
-	if (flag ==  0)
-	{
-		color1 = color2 = color3 = 128;// color of shadow
-	}
-	else
-	{
-		if (flag == 1)
-		{
-			color1 = 200;
-			color2 = 200;
-			color3 = 0;
-		}
-	}
-
-	stack_obg.push(x_pixel);// Помещаем в стек затравочный x_pixel
-	stack_obg.push(y_pixel);//Помещаем в стек затравочный y_pixel
+	int flag_fill = 0;
 
 	HWND sHwnd = GetForegroundWindow();
 	HDC hdc = GetDC(sHwnd);
 
-	while (stack_obg.empty() != true)
+	if (array_of_paint_pixel[y_pixel][x_pixel] != true)
 	{
-		//Извлекаем x и y с верхушки стэка
-		y_now = stack_obg.top();
-		stack_obg.pop();
-		x_now = stack_obg.top();
-		stack_obg.pop();
-
-		//Для x_right
-		x_right = x_now;
-
-		while ((array_of_paint_pixel[y_now][x_right] != choice_flag) || (x_right == x_now))
+		if (flag == 0)
 		{
-
-			array_of_paint_pixel[y_now][x_right] = choice_flag;
-			SetPixel(hdc, x_right, y_now, RGB(color1, color2, color3));
-
-			x_right++;
+			color1 = color2 = color3 = 70;// color of shadow
 		}
-		//Для x _left
-		x_left = x_now;
-
-		while ((array_of_paint_pixel[y_now][x_left] != choice_flag) || (x_left == x_now))
+		else
 		{
-			array_of_paint_pixel[y_now][x_left] = choice_flag;
-			SetPixel(hdc, x_left, y_now, RGB(color1, color2, color3));
-			x_left--;
-		}
-		x_left++;
-		x_right--;
-
-		//Проверка строки выше
-		bool flag_1 = 0;
-		int y = y_now + 1;
-
-		for (int x = x_left; x < x_right; x++)
-		{
-			if (array_of_paint_pixel[y][x] != choice_flag)
-			{
-				flag_1 = 1;
-			}
-
-			if ((flag_1 == 1) && (array_of_paint_pixel[y][x + 1] == choice_flag))
-			{
-				//Помещаем данный пиксель в стэк
-				stack_obg.push(x);// Помещаем в стек затравочный x_pixel
-				stack_obg.push(y);//Помещаем в стек затравочный y_pixel
-
-				flag_1 = 0;
-			}
+			color1 = 0;
+			color2 = 100;
+			color3 = 200;
 		}
 
-		//Проверка строки ниже 
-		y = y_now - 1;
+		stack_obg.push(x_pixel);// Помещаем в стек затравочный x_pixel
+		stack_obg.push(y_pixel);//Помещаем в стек затравочный y_pixel
 
-		for (int x = x_left; x < x_right; x++)
+		while (stack_obg.empty() != true)
 		{
-			if (array_of_paint_pixel[y][x] != choice_flag)
+			//Извлекаем x и y с верхушки стэка
+			y_now = stack_obg.top();
+			stack_obg.pop();
+			x_now = stack_obg.top();
+			stack_obg.pop();
+
+			//Для x_right
+			x_right = x_now;
+
+			while ((array_of_paint_pixel[y_now][x_right] != true) || (x_right == x_now))
 			{
-				flag_1 = 1;
+
+				array_of_paint_pixel[y_now][x_right] = true;
+				//SetPixel(hdc, x_right, y_now, RGB(color1, color2, color3));
+				x_right++;
+				if (x_right == 1370)
+				{
+					ReleaseDC(sHwnd, hdc);
+					return 1;
+				}
+			}
+			//Для x _left
+			x_left = x_now;
+
+			while ((array_of_paint_pixel[y_now][x_left] != true) || (x_left == x_now))
+			{
+				array_of_paint_pixel[y_now][x_left] = true;
+				//SetPixel(hdc, x_left, y_now, RGB(color1, color2, color3));
+
+				x_left--;
+				if (x_left == -1)
+				{
+					ReleaseDC(sHwnd, hdc);
+					return 1;
+				}
+			}
+			x_left++;
+			x_right--;
+
+			for (int i = x_left; i <= x_right; i++)
+				SetPixel(hdc, i, y_now, RGB(color1, color2, color3));
+
+			//Проверка строки выше
+			bool flag_1 = 0;
+			int y = y_now + 1;
+
+			for (int x = x_left; x <= x_right; x++)
+			{
+				if (array_of_paint_pixel[y][x] == false)
+				{
+					flag_1 = 1;
+				}
+
+				if ((flag_1 == 1) && (array_of_paint_pixel[y][x + 1] == true))
+				{
+					//Помещаем данный пиксель в стэк
+					stack_obg.push(x);// Помещаем в стек затравочный x_pixel
+					stack_obg.push(y);//Помещаем в стек затравочный y_pixel
+
+					flag_1 = 0;
+				}
+
+				if ((x == x_right) && (flag_1 == 1))
+				{
+					//Помещаем данный пиксель в стэк
+					stack_obg.push(x);// Помещаем в стек затравочный x_pixel
+					stack_obg.push(y);//Помещаем в стек затравочный y_pixel
+
+					flag_1 = 0;
+				}
 			}
 
-			if ((flag_1 == 1) && (array_of_paint_pixel[y][x + 1] == choice_flag))
+			//Проверка строки ниже 
+			y = y_now - 1;
+			flag_1 = 0;
+			for (int x = x_left; x <= x_right; x++)
 			{
-				//Помещаем данный пиксель в стэк
-				stack_obg.push(x);// Помещаем в стек затравочный x_pixel
-				stack_obg.push(y);//Помещаем в стек затравочный y_pixel
+				if (array_of_paint_pixel[y][x] == false)
+				{
+					flag_1 = 1;
+				}
 
-				flag_1 = 0;
+				if ((flag_1 == 1) && (array_of_paint_pixel[y][x + 1] == true))
+				{
+					//Помещаем данный пиксель в стэк
+					stack_obg.push(x);// Помещаем в стек затравочный x_pixel
+					stack_obg.push(y);//Помещаем в стек затравочный y_pixel
+
+					flag_1 = 0;
+				}
+
+				if ((x == x_right) && (flag_1 == 1))
+				{
+					//Помещаем данный пиксель в стэк
+					stack_obg.push(x);// Помещаем в стек затравочный x_pixel
+					stack_obg.push(y);//Помещаем в стек затравочный y_pixel
+
+					flag_1 = 0;
+				}
 			}
 		}
 	}
-
+	
 	ReleaseDC(sHwnd, hdc);
+	return 0;
 }
 
-void Paralel::drow_shadow(int flag)
+void Paralel::drow_shadow()
 {
-	int color1 = 0, color2 = 0, color3 = 0;
-
-	if (flag != -1)
-	{
-		color1 = color2 = color3 = 128;
-	}
-	else
-	{
-		flag = 0;
-	}
-
-
+	float dot_of_shadow[8][4];
 	int xl = light[0], yl = light[1], zl = light[2];
 	int xp = 0, yp = 0, zp = 0;
 	//dot_of_shadow[8][4]
@@ -637,8 +627,7 @@ void Paralel::drow_shadow(int flag)
 
 	//Рисование и заливка тени
 	//Цвет  128 128 128
-
-	float L[8][2], zk = observer[2], zm = 500;//Задание данных кординат подобрано вручную zk - расстояние до глаза в пикселях ^_^ zm расстояние от 3-х ерного объекта до монитора
+	float L[8][2], zk = observer[2], zm = 600;//Задание данных кординат подобрано вручную zk - расстояние до глаза в пикселях ^_^ zm расстояние от 3-х ерного объекта до монитора
 	
 	for (int i = 0; i < 8; i++)
 	{
@@ -646,53 +635,183 @@ void Paralel::drow_shadow(int flag)
 		L[i][1] = dot_of_shadow[i][1] * (zk - zm) / (zk - dot_of_shadow[i][2]);
 
 	}
-	//Сделать заливку
+
 	// грань из точек 0-1-2-3-0
-	drow_line(L[0][0], L[0][1], L[1][0], L[1][1], color1, color2, color3);//0 - 1
-	drow_line(L[1][0], L[1][1], L[2][0], L[2][1], color1, color2, color3);//1 - 2
-	drow_line(L[2][0], L[2][1], L[3][0], L[3][1], color1, color2, color3);//2 - 3
-	drow_line(L[3][0], L[3][1], L[0][0], L[0][1], color1, color2, color3);//3 - 0
+	drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 0);//0-1-2-3
 
 	// грань из точек 4-5-6-7
-	drow_line(L[4][0], L[4][1], L[5][0], L[5][1], color1, color2, color3);//4 - 5
-	drow_line(L[5][0], L[5][1], L[6][0], L[6][1], color1, color2, color3);//5 - 6
-	drow_line(L[6][0], L[6][1], L[7][0], L[7][1], color1, color2, color3);//6 - 7
-	drow_line(L[7][0], L[7][1], L[4][0], L[4][1], color1, color2, color3);//7 - 4
+	drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 0);//4-5-6-7
 
 	// грань из точек 0-1-5-4
-	drow_line(L[0][0], L[0][1], L[1][0], L[1][1], color1, color2, color3);//0 - 1
-	drow_line(L[1][0], L[1][1], L[5][0], L[5][1], color1, color2, color3);//1 - 5
-	drow_line(L[5][0], L[5][1], L[4][0], L[4][1], color1, color2, color3);//5 - 3
-	drow_line(L[4][0], L[4][1], L[0][0], L[0][1], color1, color2, color3);//4 - 0
+	drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 0);//0-1-5-4
 
 	// грань из точек 5-1-2-6
-	drow_line(L[5][0], L[5][1], L[1][0], L[1][1], color1, color2, color3);//5 - 1
-	drow_line(L[1][0], L[1][1], L[2][0], L[2][1], color1, color2, color3);//1 - 2
-	drow_line(L[2][0], L[2][1], L[6][0], L[6][1], color1, color2, color3);//2 - 6
-	drow_line(L[6][0], L[6][1], L[5][0], L[5][1], color1, color2, color3);//6 - 5
+	drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 0);
 
 	// грань из точек 6-2-3-7
-	drow_line(L[6][0], L[6][1], L[2][0], L[2][1], color1, color2, color3);//6 - 2
-	drow_line(L[2][0], L[2][1], L[3][0], L[3][1], color1, color2, color3);//2 - 3 
-	drow_line(L[3][0], L[3][1], L[7][0], L[7][1], color1, color2, color3);//3 - 7
-	drow_line(L[7][0], L[7][1], L[6][0], L[6][1], color1, color2, color3);//7 - 6
+	drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 0);
 
 	// грань из точек 7-3-0-4
-	drow_line(L[7][0], L[7][1], L[3][0], L[3][1], color1, color2, color3);//7 - 4
-	drow_line(L[3][0], L[3][1], L[0][0], L[0][1], color1, color2, color3);//4 - 0
-	drow_line(L[0][0], L[0][1], L[4][0], L[4][1], color1, color2, color3);//0 - 4
-	drow_line(L[4][0], L[4][1], L[7][0], L[7][1], color1, color2, color3);//4 - 7
-
-	fill((L[0][0] + L[1][0] + L[2][0] + L[3][0]) / 4, (L[0][1] + L[1][1] + L[2][1] + L[3][1] / 4), flag);
-	fill((L[4][0] + L[5][0] + L[6][0] + L[7][0]) / 4, (L[4][1] + L[5][1] + L[6][1] + L[7][1] / 4), flag);
-	fill((L[0][0] + L[1][0] + L[5][0] + L[4][0]) / 4, (L[0][1] + L[1][1] + L[5][1] + L[4][1] / 4), flag);
-	fill((L[5][0] + L[1][0] + L[2][0] + L[6][0]) / 4, (L[5][1] + L[1][1] + L[2][1] + L[6][1] / 4), flag);
-	fill((L[6][0] + L[2][0] + L[3][0] + L[7][0]) / 4, (L[6][1] + L[2][1] + L[3][1] + L[7][1] / 4), flag);
-	fill((L[7][0] + L[3][0] + L[0][0] + L[4][0]) / 4, (L[7][1] + L[3][1] + L[0][1] + L[4][1] / 4), flag);
-
+	drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 0);
 }
 
-int Paralel::menu()
+void Paralel::move(int flag)
 {
-	return 0;
+	Paralel N(0);
+	N = *this;
+
+	double dx = 0, dy = 0, dz = 0;
+	int d = 10;
+	if (flag == 6)
+	{
+		dx = d;
+	}
+	if (flag == 4)
+	{
+		dx = -d;
+	}
+	if (flag == 8)
+	{
+		dy = -d;
+	}
+	if (flag == 2)
+	{
+		dy = d;
+	}
+	if (flag == 7)
+	{
+		dz = -d;
+	}	if (flag == 9)
+	{
+		dz = d;
+	}
+
+	Cmat B((1), (0), (0), (dx), (0), (1), (0), (dy), (0), (0), (1), (dz), (0), (0), (0), (1));
+	N * B;
+
+
+	//Проверка выхода за границы массива
+	if (N.going_abroad() == false)
+	{
+		*this = N;
+	}
+}
+
+void Paralel::scale(int flag)
+{
+	Paralel N(0);
+	N = *this;
+	double dx = 0, dy = 0, dz = 0;
+	double S = 1.05, s = 0.95;
+	double k;
+
+	if (flag == 3)
+	{
+		k = S;
+	}
+	if (flag == 1)
+	{
+		k = s;
+	}
+
+	for (int i = 0; i < 8; i++)
+	{
+		dx += A[i][0];
+		dy += A[i][1];
+		dz +=A[i][2];
+	}
+	dx /= 8;
+	dy /= 8;
+	dz /= 8;
+	Cmat B((k), (0), (0), (0), (0), (k), (0), (0), (0), (0), (k), (0), (0), (0), (0), (1));
+	Cmat Bd((1), (0), (0), (-dx), (0), (1), (0), (-dy), (0), (0), (1), (-dz), (0), (0), (0), (1));
+	Cmat Bmd((1), (0), (0), (dx), (0), (1), (0), (dy), (0), (0), (1), (dz), (0), (0), (0), (1));
+
+	N * Bd;
+	N * B;
+	N * Bmd;
+
+	//Проверка выхода за границы массива
+	if (N.going_abroad() == false)
+	{
+		*this = N;
+	}
+}
+
+void Paralel::roat(int flag, int flag2)
+{
+	Paralel N(0);
+	N = *this;
+	const double fi = 0.033;
+	double dx = 0, dy = 0, dz = 0;
+	//находим центр
+	for (int i = 0; i < 8; i++)
+	{
+		dx += A[i][0];
+		dy += A[i][1];
+		dz += A[i][2];
+	}
+	dx /= 8;
+	dy /= 8;
+	dz /= 8;
+
+	Cmat Bd((1), (0), (0), (-dx), (0), (1), (0), (-dy), (0), (0), (1), (-dz), (0), (0), (0), (1));
+	Cmat Bmd((1), (0), (0), (dx), (0), (1), (0), (dy), (0), (0), (1), (dz), (0), (0), (0), (1));
+
+
+	double U = flag2 ? fi : -fi;
+	if (flag == 1)//вокруг х
+	{
+		Cmat B((1), (0), (0), (0), (0), (cos(U)), (-sin(U)), (0), (0), (sin(U)), (cos(U)), (0), (0), (0), (0), (1));
+
+		N * Bd;
+		N * B;
+		N * Bmd;
+	}
+	if (flag == 2)// вокруг у
+	{
+		Cmat B((cos(U)), (0), (-sin(U)), (0), (0), (1), (0), (0), (sin(U)), (0), ((cos(U))), (0), (0), (0), (0), (1));
+
+		N * Bd;
+		N * B;
+		N * Bmd;
+	}
+	if (flag == 3)// вокруг z
+	{
+		Cmat B((cos(U)), (-sin(U)), (0), (0), (sin(U)), (cos(U)), (0), (0), (0), (0), (1), (0), (0), (0), (0), (1));
+
+		N * Bd;
+		N * B;
+		N * Bmd;
+	}
+	//Проверка выхода за границы массива
+	if (N.going_abroad() == false)
+	{
+		*this = N;
+	}
+}
+
+bool Paralel::going_abroad()
+{
+	//Проверка выхода за границы:
+	//x_l = 0; x_r = 1369
+	//y_t = 0, y_b = 600
+	float L[8][2], zk = observer[2], zm = 600;//Задание данных кординат подобрано вручную zk - расстояние до глаза в пикселях ^_^ zm расстояние от 3-х ерного объекта до монитора
+	bool flag_1 = false;
+	for (int i = 0; i < 8; i++)
+	{
+		L[i][0] = A[i][0] * (zk - zm) / (zk - A[i][2]);
+		L[i][1] = A[i][1] * (zk - zm) / (zk - A[i][2]);
+	}
+	for (int i = 0; i < 8; i++)
+	{
+		//x
+		if ((L[i][0] > 1368) || (L[i][0] < 0))
+			flag_1 = true;
+		//y
+
+		if ((A[i][1] > y_floor) || (L[i][1] < 0))
+			flag_1 = true;
+	}
+	return flag_1;
 }

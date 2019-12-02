@@ -8,33 +8,11 @@
 Алгоритм удаления невидимых линий и поверхносте, Алгоритм построения тени  - Совмещенная процедура удаления невидимых поверхностей и построения теней 
 */
 
-#include"Header.h"
-#include<conio.h>
+#include"ControllerOfParall.h"
 
 int main()
 {
-	Paralel paral_1(0), paral_2(1);//Создание обёкта 2 пар-дов, инициализация по умолчанию
-	char choice = '0';
-	paral_1.drow(1);
-	system("pause");
-	/*
-	do
-	{
-		choice = _getch();
+	ControllerOfParall obg;
 
-		if (choice =='1')//Меню первого параллелепипеда
-		{
-			paral_1.menu();
-		}
-		else
-		{
-			if (choice == '2')//Меню второго параллелепипеда
-			{
-				paral_2.menu();
-			}
-		}
-
-	} while (choice != '0');
-	*/
-	return 0;
+	return obg.menu();
 }
