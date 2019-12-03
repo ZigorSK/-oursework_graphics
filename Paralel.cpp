@@ -669,7 +669,7 @@ void Paralel::move(int flag)
 	N = *this;
 
 	double dx = 0, dy = 0, dz = 0;
-	int d = 10;
+	int d = 30;//10
 	if (flag == 6)
 	{
 		dx = d;
@@ -710,7 +710,7 @@ void Paralel::scale(int flag)
 	Paralel N(0);
 	N = *this;
 	double dx = 0, dy = 0, dz = 0;
-	double S = 1.05, s = 0.95;
+	double S = 1.15, s = 0.85;//1.05; 0.95
 	double k;
 
 	if (flag == 3)
@@ -750,7 +750,7 @@ void Paralel::roat(int flag, int flag2)
 {
 	Paralel N(0);
 	N = *this;
-	const double fi = 0.033;
+	const double fi = 0.1;// 0.033
 	double dx = 0, dy = 0, dz = 0;
 	//находим центр
 	for (int i = 0; i < 8; i++)
