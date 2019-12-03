@@ -118,7 +118,7 @@ Paralel::Paralel(int flag)//Конструктор для инициализации вершин паралелипипедов
 
 	//vector of light in infinity
 	light[0] = 0 ;//x
-	light[1] = -100000;//y
+	light[1] = -1000;//y
 	light[2] = 0;//z
 	light[3] = 1 ;
 
@@ -209,7 +209,7 @@ Paralel::~Paralel()
 	ReleaseDC(sHwnd, hdc);
 }*/
 
-void Paralel::drow_figure(float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3, int flag)//1 цвет, 0 тень
+void Paralel::drow_figure(float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3, int flag, int flag2 )//1 цвет, 0 тень; flag 2 - 0 ребра отличны от тени
 {
 	HWND sHwnd = GetForegroundWindow();
 	HDC hdc = GetDC(sHwnd);
@@ -226,14 +226,22 @@ void Paralel::drow_figure(float x0, float y0, float x1, float y1, float x2, floa
 
 
 	int color_1, color_2, color_3;
-	if (flag == 0)//ТЕнь
-	{
-		color_1 = color_2 = color_3 = 70;
-	}
-	else
+	if (flag == 1)//цвет
 	{
 		color_1 = 250;
 		color_2 = color_3 = 0;
+		
+	}
+	else
+	{
+		if (flag2 == 0)
+		{
+			color_1 = color_2 = color_3 = 70;
+		}
+		else
+		{
+			color_1 = color_2 = color_3 = 50;
+		}
 	}
 
 
@@ -396,11 +404,11 @@ void Paralel::drow()// рисуем  параллелипипед
 	{
 			if (mull_equ_and_light[0] >= 0)//Не в тени
 			{
-				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 1);//0-1-2-3
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 1, 0);//0-1-2-3
 			}
 			else//В тени
 			{
-				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 0);//0-1-2-3
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 0, 1);//0-1-2-3
 			}
 	}
 
@@ -409,11 +417,11 @@ void Paralel::drow()// рисуем  параллелипипед
 	{
 			if (mull_equ_and_light[1] >= 0)//Не в тени
 			{
-				drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 1);//4-5-6-7
+				drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 1, 0);//4-5-6-7
 			}
 			else
 			{
-				drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 0);//4-5-6-7
+				drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 0, 1);//4-5-6-7
 			}
 	}
 
@@ -422,11 +430,11 @@ void Paralel::drow()// рисуем  параллелипипед
 	{
 			if (mull_equ_and_light[2] >= 0)//Не в тени
 			{
-				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 1);//0-1-5-4
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 1, 0);//0-1-5-4
 			}
 			else
 			{
-				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 0);//0-1-5-4
+				drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 0, 1);//0-1-5-4
 			}
 	}
 
@@ -435,11 +443,11 @@ void Paralel::drow()// рисуем  параллелипипед
 	{
 			if (mull_equ_and_light[3] >= 0)//Не в тени
 			{
-				drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 1);
+				drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 1, 0);
 			}
 			else
 			{
-				drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 0);
+				drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 0, 1);
 			}
 	}
 
@@ -448,11 +456,11 @@ void Paralel::drow()// рисуем  параллелипипед
 	{
 			if (mull_equ_and_light[4] >= 0)//Не в тени
 			{
-				drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 1);
+				drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 1, 0);
 			}
 			else
 			{
-				drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 0);
+				drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 0, 1);
 			}
 	}
 
@@ -461,11 +469,11 @@ void Paralel::drow()// рисуем  параллелипипед
 	{
 			if (mull_equ_and_light[5] >= 0)//Не в тени
 			{
-				drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 1);
+				drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 1, 0);
 			}
 			else
 			{
-				drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 0);
+				drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 0, 1);
 			}
 	}
 }
@@ -619,9 +627,9 @@ void Paralel::drow_shadow()
 		yp = A[i][1];
 		zp = A[i][2];
 
-		dot_of_shadow[i][0] = (xl*yp - xp*yl)/(yp-yl);//xs
+		dot_of_shadow[i][0] = xp;//(xl*yp - xp*yl)/(yp-yl);//xs
 		dot_of_shadow[i][1] = y_floor;//ys
-		dot_of_shadow[i][2] = (zl*yp -zp*yl)/(yp - yl);//zs
+		dot_of_shadow[i][2] = zp;//(zl*yp -zp*yl)/(yp - yl);//zs
 		dot_of_shadow[i][3] = 1;
 	}
 
@@ -637,22 +645,22 @@ void Paralel::drow_shadow()
 	}
 
 	// грань из точек 0-1-2-3-0
-	drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 0);//0-1-2-3
+	drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[2][0], L[2][1], L[3][0], L[3][1], 0, 0);//0-1-2-3
 
 	// грань из точек 4-5-6-7
-	drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 0);//4-5-6-7
+	drow_figure(L[4][0], L[4][1], L[5][0], L[5][1], L[6][0], L[6][1], L[7][0], L[7][1], 0, 0);//4-5-6-7
 
 	// грань из точек 0-1-5-4
-	drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 0);//0-1-5-4
+	drow_figure(L[0][0], L[0][1], L[1][0], L[1][1], L[5][0], L[5][1], L[4][0], L[4][1], 0, 0);//0-1-5-4
 
 	// грань из точек 5-1-2-6
-	drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 0);
+	drow_figure(L[5][0], L[5][1], L[1][0], L[1][1], L[2][0], L[2][1], L[6][0], L[6][1], 0, 0);
 
 	// грань из точек 6-2-3-7
-	drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 0);
+	drow_figure(L[6][0], L[6][1], L[2][0], L[2][1], L[3][0], L[3][1], L[7][0], L[7][1], 0, 0);
 
 	// грань из точек 7-3-0-4
-	drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 0);
+	drow_figure(L[7][0], L[7][1], L[3][0], L[3][1], L[0][0], L[0][1], L[4][0], L[4][1], 0, 0);
 }
 
 void Paralel::move(int flag)
@@ -810,7 +818,7 @@ bool Paralel::going_abroad()
 			flag_1 = true;
 		//y
 
-		if ((A[i][1] > y_floor) || (L[i][1] < 0))
+		if ((A[i][1] >= y_floor) || (L[i][1] < 0))
 			flag_1 = true;
 	}
 	return flag_1;
